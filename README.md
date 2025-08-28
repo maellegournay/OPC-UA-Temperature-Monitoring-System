@@ -11,7 +11,13 @@ It features:
 	•	Dynamic configuration reload without restart.
 	•	Shutdown and data export on exit.
 
-Directory structure: ├── opcua_monitor.py # Main Python script ├── config.json # Configuration file ├── templates/ │ └── index.html # Web dashboard ├── alarm_history_.json # Auto-saved alarm history (per run) ├── alarm_history_.csv # Exported alarm history
+Directory structure: 
+├── opcua_monitor.py 		# Main Python script 
+├── config.json 			# Configuration file 
+├── templates/ 
+│ └── index.html 			# Web dashboard 
+├── alarm_history_.json 	# Auto-saved alarm history (per run) 
+├── alarm_history_.csv 		# Exported alarm history
 
 Requirement: python3 -m pip install opcua flask flask-socketio keyboard install the opc ua simulation server (here Prosys free version).
 
