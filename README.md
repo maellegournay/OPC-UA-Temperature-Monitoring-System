@@ -67,73 +67,12 @@ Additionally, install the OPC UA Simulation Server (Prosys Free Version).
 
 Sensors, alarms, and trend settings are defined in the `config.json` file. This allows for flexible configuration of monitoring parameters without modifying the source code.
 
-### Example Configuration
-
-```json
-{
-  "server": {
-    "endpoint": "opc.tcp://localhost:53530/OPCUA/SimulationServer",
-    "timeout": 30,
-    "reconnect_interval": 5
-  },
-  "sensors": [
-    {
-      "id": "Temperature",
-      "node_id": "ns=3;i=1001",
-      "name": "Temperature Sensor",
-      "unit": "°C",
-      "alarms": {
-        "low_low": 10,
-        "low": 15,
-        "high": 35,
-        "high_high": 40
-      },
-      "trend": {
-        "window_size": 10,
-        "rapid_threshold": 5.0
-      }
-    }
-  ],
-  "monitoring": {
-    "sample_interval": 1000,
-    "publish_interval": 500
-  }
-}
-```
-
 ## Important Notes
 
 - **Write limitations**: Writing alarm status back to the OPC UA server is not supported in the Free Version of Prosys Server (read-only access only)
 - **macOS compatibility**: On macOS, `keyboard.is_pressed("q")` is not supported. Use `q + ENTER` to stop the simulation
 - **Connection resilience**: If the connection is lost, the program automatically attempts reconnection and restores subscriptions
 
-## Troubleshooting
-
-### Connection Issues
-- Verify the OPC UA server is running
-- Check the endpoint URL in `config.json`
-- Ensure no firewall is blocking the connection
-
-### Permission Errors
-- On Linux/macOS, you may need to run with appropriate permissions for keyboard input
-- Consider running without keyboard module if not needed
-
-### Performance Optimization
-- Adjust `sample_interval` and `publish_interval` in configuration
-- Reduce the number of monitored sensors if experiencing lag
-- Check system resources (CPU, memory usage)
-
 ## License
 
 This project is provided as-is for educational and testing purposes.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
-
-## Support
-
-For issues related to:
-- **Prosys OPC UA Server**: Consult the Prosys documentation
-- **Python opcua library**: Check the python-opcua GitHub repository
-- **This monitoring tool**: Open an issue in this repository
