@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OPC UA Dashboard</title>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 50%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background-color: #4CAF50; color: white; }
+        td { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Real-Time OPC UA Sensor Dashboard</h1>
+    	<table>
+    		<thead>
+        		<tr>
+          			<th>Sensor</th>
+            			<th>Type</th>
+            			<th>Value</th>
+            			<th>Active</th>
+        		</tr>
+   		</thead>
+    	<tbody id="alarmTableBody"></tbody>
+	</table>
+
+    <script>
+	const socket = io();
+
+socket.on('alarm', (data) => {
+    console.log('Alarm received:', data);
+    const tbody = document.getElementById('alarmTableBody');
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${data.sensor}</td><td>${data.type}</td><td>${data.value}</td><td>${data.active}</td>`;
+    tbody.appendChild(row);
+});
+
+    </script>
+</body>
+</html>

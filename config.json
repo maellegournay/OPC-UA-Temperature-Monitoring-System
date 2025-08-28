@@ -1,0 +1,52 @@
+{
+	"sensors": [
+		{
+			"nodeId": "ns=3;i=1008",
+			"name": "Tank_1_Temperature",
+			"unit": "°C",
+			"alarms": {
+				"high_high": 50,
+				"high": 45,
+				"low": 25,
+				"low_low": 20
+			},
+			"deadband": 2.0,
+			"scanRate": 1000
+		},
+		{
+			"nodeId": "ns=3;i=1009",
+			"name": "Tank_2_Temperature",
+			"unit": "°C",
+			"alarms": {
+				"high_high": 55,
+				"high": 50,
+				"low": 30,
+				"low_low": 25
+			},
+			"deadband": 1.5,
+			"scanRate": 1000
+		},
+		{
+			"nodeId": "ns=3;i=1010",
+			"name": "Tank_3_Temperature",
+			"unit": "°C",
+			"alarms": {
+				"high_high": 40,
+				"high": 35,
+				"low": 30,
+				"low_low": 25
+			},
+			"deadband": 3,
+			"scanRate": 50000
+		}
+	],
+	"alarmSettings": {
+		"requireAcknowledgment": true,
+		"timeDelay": 0,
+		"notificationNode": "ns=3;i=1011"
+	},
+	"trendSettings": {
+  		"riseRate": 1.0,
+  		"fallRate": -1.0
+	}
+}
